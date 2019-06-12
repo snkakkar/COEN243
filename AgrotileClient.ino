@@ -13,7 +13,8 @@
 #define   MESH_PORT           5555
 #define   uS_TO_S_FACTOR      1000000
 #define   READ_INTERVAL       30 //Read from sensor every 30 seconds while awake
-#define   SPIN_BEFORE_SLEEP   1000
+#define   SPINS_BEFORE_SLEEP  1000
+#define   SENSOR_PIN          32
 
 Scheduler          userScheduler;
 namedMesh          mesh;
@@ -50,7 +51,7 @@ void deep_sleep(int t) {
   int i = 0;
   
   //Let mesh broadcast sleep message to all nodes before going to sleep
-  while(i < SPIN_BEFORE_SLEEP){
+  while(i < SPINS_BEFORE_SLEEP){
     userScheduler.execute();
     mesh.update();
     ++i;
@@ -64,7 +65,8 @@ Task taskSendMessage( TASK_SECOND*READ_INTERVAL, TASK_FOREVER, []() {
   /*
    * Read from the soil sensor and send the value to the server.
    */
-    String msg = String("This is a message from: ") + nodeName;
+
+    String msg = String(":") + String(analogRead(SENSOR_PIN));
     String to = "server";
     Serial.printf("sending to server");
     mesh.sendSingle(to, msg); 
@@ -108,6 +110,8 @@ void setup() {
    */
   userScheduler.addTask(taskSendMessage);
   taskSendMessage.enable();
+
+  pinMode(SENSOR_PIN, INPUT)
 }
 
 void loop() {
