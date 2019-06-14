@@ -5,6 +5,7 @@ Within this folder, you will see the following files/directory:
   - `code/`
   - `demo.txt`
   - `sample.html`
+  - `paper.pdf` 
 
 ## code/
 
@@ -19,3 +20,7 @@ The `demo.txt` file includes a link to a YouTube video showing a demonstration o
 ## sample.html
 
 This is a sample HTML document that we saved directly from the browser after using our system. View this web page to get a quick idea of how the user-facing visualizations would behave.
+
+## paper.pdf
+
+A formal write up of our project including our motivations, design and implementation, results, and conclusions.
