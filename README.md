@@ -5,7 +5,8 @@ Within this folder, you will see the following files/directory:
   - `code/`
   - `demo.txt`
   - `sample.html`
-  - `paper.pdf` 
+  - `paper.pdf`
+  - `slides.pdf`
 
 ## code/
 
@@ -24,3 +25,7 @@ This is a sample HTML document that we saved directly from the browser after usi
 ## paper.pdf
 
 A formal write up of our project including our motivations, design and implementation, results, and conclusions.
+
+## slides.pdf
+
+A PDF of our slides from our presentation on the project.
